@@ -62,6 +62,16 @@
     let btcMined = 0.02130561; 
 	    
     var Httpreq = new XMLHttpRequest(); // a new request
+    Httpreq.open("GET",'https://bitmb.pt/api?average=1,false);
+    Httpreq.send(null);
+    let responseBTCticker = JSON.parse(Httpreq.responseText);
+    console.log(responseBTCticker);
+    let euroBTCticker = (responseBTCticker.EUR.last * btcRui) + (responseBTCticker.EUR.last * btcMined);
+    console.log(euroBTCticker);
+    document.getElementById('euroBTC').innerHTML = Math.round(euroBTCticker * 100) / 100;		    
+		    
+		    
+    /*var Httpreq = new XMLHttpRequest(); // a new request
     Httpreq.open("GET",'https://blockchain.info/ticker',false);
     Httpreq.send(null);
     let responseBTCticker = JSON.parse(Httpreq.responseText);
@@ -69,6 +79,7 @@
     let euroBTCticker = (responseBTCticker.EUR.last * btcRui) + (responseBTCticker.EUR.last * btcMined);
     console.log(euroBTCticker);
     document.getElementById('euroBTC').innerHTML = Math.round(euroBTCticker * 100) / 100;	
+    */
 		    
     /*var Httpreq = new XMLHttpRequest(); // a new request
     Httpreq.open("GET",'https://api.blockchain.com/v3/exchange/tickers/BTC-EUR',false);
