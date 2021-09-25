@@ -66,7 +66,7 @@
     Httpreq.send(null);
     let responseBTCticker = JSON.parse(Httpreq.responseText);
     console.log(responseBTCticker);
-    let euroBTCticker = (responseBTCticker.EUR.last * btcRui) + (responseBTCticker.EUR.last * btcMined);
+    let euroBTCticker = (responseBTCticker * btcRui) + (responseBTCticker * btcMined);
     console.log(euroBTCticker);
     document.getElementById('euroBTC').innerHTML = Math.round(euroBTCticker * 100) / 100;		    
 		    
